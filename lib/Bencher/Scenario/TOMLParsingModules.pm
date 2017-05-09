@@ -17,6 +17,10 @@ our $scenario = {
     extra_modules => ['File::Slurper'],
     participants => [
         {
+            module => 'TOML',
+            code_template => 'TOML::from_toml(File::Slurper::read_text(<filename>))',
+        },
+        {
             module => 'TOML::Parser',
             code_template => 'state $parser = TOML::Parser->new; $parser->parse(File::Slurper::read_text(<filename>))',
         },
